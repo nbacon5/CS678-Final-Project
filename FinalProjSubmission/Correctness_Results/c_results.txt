@@ -1,0 +1,844 @@
+Program 1 output: Incorrect use of compiler feature
+Compilation Error:
+/tmp/tmpdx1iqxv0.c: In function ‘print_list’:
+/tmp/tmpdx1iqxv0.c:19:17: error: expected expression before ‘typeof’
+   19 |             if (typeof(lst->value) == typeof(int*)) {
+      |                 ^~~~~~
+/tmp/tmpdx1iqxv0.c: In function ‘compress’:
+/tmp/tmpdx1iqxv0.c:66:22: error: expected expression before ‘typeof’
+   66 |     if (x != NULL && typeof(x->value) == typeof(int*)) {
+      |                      ^~~~~~
+/tmp/tmpdx1iqxv0.c: In function ‘main’:
+/tmp/tmpdx1iqxv0.c:73:165: error: expected ‘)’ before ‘;’ token
+   73 |     List* list = cons((void*)1, cons((void*)1, cons((void*)1, cons((void*)0, cons((void*)1, cons((void*)0, cons((void*)0, cons((void*)0, cons((void*)1, NULL))))))));
+      |                      ~                                                                                                                                              ^
+      |                                                                                                                                                                     )
+/tmp/tmpdx1iqxv0.c:78:1: error: expected ‘,’ or ‘;’ before ‘}’ token
+   78 | }
+      | ^
+/tmp/tmpdx1iqxv0.c:78:1: error: expected declaration or statement at end of input
+
+----------------------------------------
+Program 2 output: Function used before its declared
+Compilation Error:
+/tmp/tmpjj4dik19.c: In function ‘uncompress’:
+/tmp/tmpjj4dik19.c:38:30: warning: implicit declaration of function ‘list_of’ [-Wimplicit-function-declaration]
+   38 |             Node* expanded = list_of(elt->value, elt->next->value);
+      |                              ^~~~~~~
+/tmp/tmpjj4dik19.c:38:30: warning: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+/tmp/tmpjj4dik19.c: At top level:
+/tmp/tmpjj4dik19.c:47:7: error: conflicting types for ‘list_of’; have ‘Node *(int,  int)’
+   47 | Node* list_of(int n, int elt) {
+      |       ^~~~~~~
+/tmp/tmpjj4dik19.c:38:30: note: previous implicit declaration of ‘list_of’ with type ‘int()’
+   38 |             Node* expanded = list_of(elt->value, elt->next->value);
+      |                              ^~~~~~~
+
+----------------------------------------
+Program 3 output: Correct
+1
+----------------------------------------
+Program 4 output: Segfault
+[ERROR] free(): invalid pointer
+----------------------------------------
+Program 5 output: Correct
+3
+----------------------------------------
+Program 6 output: Correct
+follows
+----------------------------------------
+Program 7 output: 2/3 Correct
+ab 12 3cde.f 
+ab12 3cde.f gh 
+16 8 1980
+----------------------------------------
+Program 8 output: Correct
+578
+----------------------------------------
+Program 9 output: Wrong # of args to function, conflicting types
+Compilation Error:
+/tmp/tmpl7ddosnv.c: In function ‘percolate’:
+/tmp/tmpl7ddosnv.c:92:17: warning: implicit declaration of function ‘bst_remove’; did you mean ‘remove’? [-Wimplicit-function-declaration]
+   92 |             l = bst_remove(max_l->elt, l, &compare_less);
+      |                 ^~~~~~~~~~
+      |                 remove
+/tmp/tmpl7ddosnv.c:92:44: error: ‘compare_less’ undeclared (first use in this function)
+   92 |             l = bst_remove(max_l->elt, l, &compare_less);
+      |                                            ^~~~~~~~~~~~
+/tmp/tmpl7ddosnv.c:92:44: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/tmpl7ddosnv.c:93:20: error: too many arguments to function ‘create_node’
+   93 |             return create_node(elt_max_l, l, r);
+      |                    ^~~~~~~~~~~
+/tmp/tmpl7ddosnv.c:10:7: note: declared here
+   10 | Node* create_node(int elt) {
+      |       ^~~~~~~~~~~
+/tmp/tmpl7ddosnv.c:98:20: error: too many arguments to function ‘create_node’
+   98 |             return create_node(elt_min_r, l, r);
+      |                    ^~~~~~~~~~~
+/tmp/tmpl7ddosnv.c:10:7: note: declared here
+   10 | Node* create_node(int elt) {
+      |       ^~~~~~~~~~~
+/tmp/tmpl7ddosnv.c: At top level:
+/tmp/tmpl7ddosnv.c:103:7: error: conflicting types for ‘bst_remove’; have ‘Node *(int,  Node *, int (*)(int,  int))’
+  103 | Node* bst_remove(int obj, Node* bst, int (*compare)(int, int)) {
+      |       ^~~~~~~~~~
+/tmp/tmpl7ddosnv.c:92:17: note: previous implicit declaration of ‘bst_remove’ with type ‘int()’
+   92 |             l = bst_remove(max_l->elt, l, &compare_less);
+      |                 ^~~~~~~~~~
+
+----------------------------------------
+Program 10 output: Correct
+3628800
+----------------------------------------
+Program 11 output: Incorrect
+0
+----------------------------------------
+Program 12 output: Correct
+a b c d
+----------------------------------------
+Program 13 output: Reverse order
+9 8 7 6 5 4 3 2 1 0
+----------------------------------------
+Program 14 output: Correct
+12 14 16
+----------------------------------------
+Program 15 output: Segfault
+
+----------------------------------------
+Program 16 output: Invalid syntax
+Compilation Error:
+/tmp/tmp4ltvsd_t.c: In function ‘make_adder’:
+/tmp/tmp4ltvsd_t.c:7:39: error: expected expression before ‘^’ token
+    7 |     return (adder_func)(void (*)(int))^(int)((int(*)[]){{n}, {(int)(^){ return *(int*)(&n+1)+x; }})[1];
+      |                                       ^
+/tmp/tmp4ltvsd_t.c:42:1: error: expected declaration or statement at end of input
+   42 | }
+      | ^
+
+----------------------------------------
+Program 17 output: Bad semantics
+Compilation Error:
+/tmp/tmp1yslwems.c: In function ‘main’:
+/tmp/tmp1yslwems.c:15:45: error: invalid use of void expression
+   15 |     printf("%d %d %d %d", stamp(), stamp(), reset(), stamp());
+      |                                             ^~~~~~~
+
+----------------------------------------
+Program 18 output: Correct
+(2)
+(3)
+(4)
+(5)
+
+----------------------------------------
+Program 19 output: Semantic Error
+Compilation Error:
+/tmp/tmp8whqytnz.c: In function ‘disjoin’:
+/tmp/tmp8whqytnz.c:28:12: error: expected expression before ‘^’ token
+   28 |     return ^(void *arg, ...) {
+      |            ^
+/tmp/tmp8whqytnz.c: In function ‘print_mapcar’:
+/tmp/tmp8whqytnz.c:51:19: warning: implicit declaration of function ‘atoi’ [-Wimplicit-function-declaration]
+   51 |         int num = atoi(str); // Convert string to integer for simplicity
+      |                   ^~~~
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:64:5: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘:’ token
+   64 | Note: The provided C code uses blocks (^{}) which are specific to Clang and not standard C. For full portability to standard C, lambda functions would need to be replaced with regular functions, and the variadic handling of `disjoin` and `apply` needs adjustments. Below is a version without blocks:
+      |     ^
+/tmp/tmp8whqytnz.c:64:43: error: expected identifier or ‘(’ before ‘)’ token
+   64 | Note: The provided C code uses blocks (^{}) which are specific to Clang and not standard C. For full portability to standard C, lambda functions would need to be replaced with regular functions, and the variadic handling of `disjoin` and `apply` needs adjustments. Below is a version without blocks:
+      |                                           ^
+/tmp/tmp8whqytnz.c:64:225: error: stray ‘`’ in program
+   64 | Note: The provided C code uses blocks (^{}) which are specific to Clang and not standard C. For full portability to standard C, lambda functions would need to be replaced with regular functions, and the variadic handling of `disjoin` and `apply` needs adjustments. Below is a version without blocks:
+      |                                                                                                                                                                                                                                 ^
+/tmp/tmp8whqytnz.c:64:233: error: stray ‘`’ in program
+   64 | Note: The provided C code uses blocks (^{}) which are specific to Clang and not standard C. For full portability to standard C, lambda functions would need to be replaced with regular functions, and the variadic handling of `disjoin` and `apply` needs adjustments. Below is a version without blocks:
+      |                                                                                                                                                                                                                                         ^
+/tmp/tmp8whqytnz.c:64:239: error: stray ‘`’ in program
+   64 | Note: The provided C code uses blocks (^{}) which are specific to Clang and not standard C. For full portability to standard C, lambda functions would need to be replaced with regular functions, and the variadic handling of `disjoin` and `apply` needs adjustments. Below is a version without blocks:
+      |                                                                                                                                                                                                                                               ^
+/tmp/tmp8whqytnz.c:64:245: error: stray ‘`’ in program
+   64 | Note: The provided C code uses blocks (^{}) which are specific to Clang and not standard C. For full portability to standard C, lambda functions would need to be replaced with regular functions, and the variadic handling of `disjoin` and `apply` needs adjustments. Below is a version without blocks:
+      |                                                                                                                                                                                                                                                     ^
+/tmp/tmp8whqytnz.c:77:6: error: conflicting types for ‘symbolp’; have ‘_Bool(void *, __va_list_tag *)’
+   77 | bool symbolp(void *arg, va_list args) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:12:6: note: previous definition of ‘symbolp’ with type ‘_Bool(void *)’
+   12 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:83:6: error: conflicting types for ‘apply’; have ‘_Bool(_Bool (*)(void *, __va_list_tag *), void *, __va_list_tag *)’
+   83 | bool apply(bool (*fn)(void *, va_list), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:44:6: note: previous definition of ‘apply’ with type ‘_Bool(_Bool (*)(void *), void *, __va_list_tag *)’
+   44 | bool apply(bool (*fn)(void *), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:89:14: error: conflicting types for ‘disjoin’; have ‘_Bool (*(_Bool (*)(void *, __va_list_tag *), ...))(void *, __va_list_tag *)’
+   89 | predicate_fn disjoin(predicate_fn fn, ...) {
+      |              ^~~~~~~
+/tmp/tmp8whqytnz.c:18:8: note: previous definition of ‘disjoin’ with type ‘_Bool (*(_Bool (*)(void *), ...))(void *)’
+   18 | bool (*disjoin(bool (*fn)(void *), ...))(void *) {
+      |        ^~~~~~~
+/tmp/tmp8whqytnz.c: In function ‘disjoin’:
+/tmp/tmp8whqytnz.c:97:12: error: expected expression before ‘^’ token
+   97 |     return ^(void *arg, va_list args) {
+      |            ^
+/tmp/tmp8whqytnz.c: In function ‘disjoin_helper’:
+/tmp/tmp8whqytnz.c:119:60: error: cast specifies array type
+  119 |     bool result = apply((predicate_fn)disjoin_lambda, arg, (va_list)fns);
+      |                                                            ^
+/tmp/tmp8whqytnz.c: In function ‘disjoin_standard’:
+/tmp/tmp8whqytnz.c:127:12: error: expected expression before ‘^’ token
+  127 |     return ^(void *arg, va_list args) {
+      |            ^
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:148:5: error: redefinition of ‘main’
+  148 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:57:5: note: previous definition of ‘main’ with type ‘int()’
+   57 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c: In function ‘main’:
+/tmp/tmp8whqytnz.c:152:49: warning: passing argument 1 of ‘disjoin_standard’ from incompatible pointer type [-Wincompatible-pointer-types]
+  152 |     predicate_fn disjoint_fn = disjoin_standard(integerp, symbolp);
+      |                                                 ^~~~~~~~
+      |                                                 |
+      |                                                 _Bool (*)(void *)
+/tmp/tmp8whqytnz.c:125:44: note: expected ‘predicate_fn’ {aka ‘_Bool (*)(void *, __va_list_tag *)’} but argument is of type ‘_Bool (*)(void *)’
+  125 | predicate_fn disjoin_standard(predicate_fn fn, predicate_fn next_fn) {
+      |                               ~~~~~~~~~~~~~^~
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:158:1: warning: data definition has no type or storage class
+  158 | However, the above code still contains blocks which are non-standard. A fully standard solution would require more complex handling of predicates and possibly using an array of function pointers instead of variadic arguments, which complicates the disjoin function's definition. Here is a final, truly portable version:
+      | ^~~~~~~
+/tmp/tmp8whqytnz.c:158:1: warning: type defaults to ‘int’ in declaration of ‘However’ [-Wimplicit-int]
+/tmp/tmp8whqytnz.c:158:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘above’
+  158 | However, the above code still contains blocks which are non-standard. A fully standard solution would require more complex handling of predicates and possibly using an array of function pointers instead of variadic arguments, which complicates the disjoin function's definition. Here is a final, truly portable version:
+      |              ^~~~~
+/tmp/tmp8whqytnz.c:158:265: warning: missing terminating ' character
+  158 | However, the above code still contains blocks which are non-standard. A fully standard solution would require more complex handling of predicates and possibly using an array of function pointers instead of variadic arguments, which complicates the disjoin function's definition. Here is a final, truly portable version:
+      |                                                                                                                                                                                                                                                                         ^
+/tmp/tmp8whqytnz.c:158:265: error: missing terminating ' character
+  158 | However, the above code still contains blocks which are non-standard. A fully standard solution would require more complex handling of predicates and possibly using an array of function pointers instead of variadic arguments, which complicates the disjoin function's definition. Here is a final, truly portable version:
+      |                                                                                                                                                                                                                                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:173:6: error: redefinition of ‘symbolp’
+  173 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:12:6: note: previous definition of ‘symbolp’ with type ‘_Bool(void *)’
+   12 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:190:6: error: conflicting types for ‘disjoin_lambda’; have ‘_Bool(void *, void *)’
+  190 | bool disjoin_lambda(void *fns_ptr, void *arg) {
+      |      ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:105:6: note: previous definition of ‘disjoin_lambda’ with type ‘_Bool(void *, __va_list_tag *)’
+  105 | bool disjoin_lambda(void *arg, va_list args) {
+      |      ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:195:6: error: conflicting types for ‘disjoin’; have ‘_Bool(_Bool (*)(void *), _Bool (*)(void *))’
+  195 | bool disjoin(bool (*fn1)(void *), bool (*fn2)(void *)) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:18:8: note: previous definition of ‘disjoin’ with type ‘_Bool (*(_Bool (*)(void *), ...))(void *)’
+   18 | bool (*disjoin(bool (*fn)(void *), ...))(void *) {
+      |        ^~~~~~~
+/tmp/tmp8whqytnz.c: In function ‘disjoin’:
+/tmp/tmp8whqytnz.c:197:12: error: expected expression before ‘^’ token
+  197 |     return ^(void *arg, va_list args) {
+      |            ^
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:202:6: error: conflicting types for ‘apply’; have ‘_Bool(_Bool (*)(void *, __va_list_tag *), void *, __va_list_tag *)’
+  202 | bool apply(bool (*fn)(void *, va_list), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:44:6: note: previous definition of ‘apply’ with type ‘_Bool(_Bool (*)(void *), void *, __va_list_tag *)’
+   44 | bool apply(bool (*fn)(void *), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:206:6: error: conflicting types for ‘mapcar_predicate’; have ‘void(_Bool (*)(void *, __va_list_tag *), const char **)’
+  206 | void mapcar_predicate(bool (*fn)(void *, va_list), const char *list[]) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:134:6: note: previous definition of ‘mapcar_predicate’ with type ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, size_t)’ {aka ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, long unsigned int)’}
+  134 | bool mapcar_predicate(predicate_fn fn, const char *list[], size_t length) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:214:5: error: redefinition of ‘main’
+  214 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:57:5: note: previous definition of ‘main’ with type ‘int()’
+   57 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c: In function ‘main’:
+/tmp/tmp8whqytnz.c:218:44: warning: initialization of ‘_Bool (*)(void *, __va_list_tag *)’ from incompatible pointer type ‘_Bool (*)(void *, void *)’ [-Wincompatible-pointer-types]
+  218 |     bool (*disjoint_fn)(void *, va_list) = disjoin_lambda;
+      |                                            ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:221:5: error: too many arguments to function ‘mapcar_predicate’
+  221 |     mapcar_predicate(disjoint_fn, disjoint_fns_ptr, args);
+      |     ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:206:6: note: declared here
+  206 | void mapcar_predicate(bool (*fn)(void *, va_list), const char *list[]) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:226:1: error: unknown type name ‘This’
+  226 | This code still isn't perfect due to the use of C blocks, but the following version eliminates the use of blocks and relies on a different mechanism:
+      | ^~~~
+/tmp/tmp8whqytnz.c:226:11: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘still’
+  226 | This code still isn't perfect due to the use of C blocks, but the following version eliminates the use of blocks and relies on a different mechanism:
+      |           ^~~~~
+/tmp/tmp8whqytnz.c:226:11: error: unknown type name ‘still’
+/tmp/tmp8whqytnz.c:226:20: warning: missing terminating ' character
+  226 | This code still isn't perfect due to the use of C blocks, but the following version eliminates the use of blocks and relies on a different mechanism:
+      |                    ^
+/tmp/tmp8whqytnz.c:226:20: error: missing terminating ' character
+  226 | This code still isn't perfect due to the use of C blocks, but the following version eliminates the use of blocks and relies on a different mechanism:
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:241:6: error: redefinition of ‘symbolp’
+  241 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:12:6: note: previous definition of ‘symbolp’ with type ‘_Bool(void *)’
+   12 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:249:16: error: conflicting types for ‘predicate_fn’; have ‘_Bool (*)(void *)’
+  249 | typedef bool (*predicate_fn)(void *arg);
+      |                ^~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:87:16: note: previous declaration of ‘predicate_fn’ with type ‘predicate_fn’ {aka ‘_Bool (*)(void *, __va_list_tag *)’}
+   87 | typedef bool (*predicate_fn)(void *, va_list);
+      |                ^~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:251:14: error: conflicting types for ‘disjoin’; have ‘_Bool (*(_Bool (*)(void *), _Bool (*)(void *)))(void *)’
+  251 | predicate_fn disjoin(predicate_fn fn, predicate_fn next_fn) {
+      |              ^~~~~~~
+/tmp/tmp8whqytnz.c:18:8: note: previous definition of ‘disjoin’ with type ‘_Bool (*(_Bool (*)(void *), ...))(void *)’
+   18 | bool (*disjoin(bool (*fn)(void *), ...))(void *) {
+      |        ^~~~~~~
+/tmp/tmp8whqytnz.c: In function ‘disjoin’:
+/tmp/tmp8whqytnz.c:258:12: error: expected expression before ‘^’ token
+  258 |     return ^(void *arg) {
+      |            ^
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:263:6: error: conflicting types for ‘apply’; have ‘_Bool(_Bool (*)(void *), void *)’
+  263 | bool apply(predicate_fn fn, void *arg) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:44:6: note: previous definition of ‘apply’ with type ‘_Bool(_Bool (*)(void *), void *, __va_list_tag *)’
+   44 | bool apply(bool (*fn)(void *), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:267:6: error: conflicting types for ‘mapcar_predicate’; have ‘void(_Bool (*)(void *), const char **)’
+  267 | void mapcar_predicate(predicate_fn fn, const char *list[]) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:134:6: note: previous definition of ‘mapcar_predicate’ with type ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, size_t)’ {aka ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, long unsigned int)’}
+  134 | bool mapcar_predicate(predicate_fn fn, const char *list[], size_t length) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:275:5: error: redefinition of ‘main’
+  275 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:57:5: note: previous definition of ‘main’ with type ‘int()’
+   57 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:285:1: error: unknown type name ‘In’
+  285 | In practice, we would avoid using blocks in standard C and use another approach entirely. Here is a completely standard C version:
+      | ^~
+/tmp/tmp8whqytnz.c:285:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘would’
+  285 | In practice, we would avoid using blocks in standard C and use another approach entirely. Here is a completely standard C version:
+      |                 ^~~~~
+/tmp/tmp8whqytnz.c:303:6: error: redefinition of ‘symbolp’
+  303 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:12:6: note: previous definition of ‘symbolp’ with type ‘_Bool(void *)’
+   12 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:313:6: error: redefinition of ‘disjoin_apply’
+  313 | bool disjoin_apply(predicate_fn fns[], int fn_count, void *arg) {
+      |      ^~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:181:6: note: previous definition of ‘disjoin_apply’ with type ‘_Bool(_Bool (**)(void *), int,  void *)’
+  181 | bool disjoin_apply(bool (*fns[])(void *), int fn_count, void *arg) {
+      |      ^~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:320:6: error: conflicting types for ‘disjoin_lambda’; have ‘_Bool(_Bool (**)(void *), int,  void *)’
+  320 | bool disjoin_lambda(predicate_fn fns[], int fn_count, void *arg) {
+      |      ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:105:6: note: previous definition of ‘disjoin_lambda’ with type ‘_Bool(void *, __va_list_tag *)’
+  105 | bool disjoin_lambda(void *arg, va_list args) {
+      |      ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:324:6: error: conflicting types for ‘disjoin’; have ‘_Bool(_Bool (*)(void *), _Bool (*)(void *))’
+  324 | bool disjoin(bool (*fn1)(void *), bool (*fn2)(void *)) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:18:8: note: previous definition of ‘disjoin’ with type ‘_Bool (*(_Bool (*)(void *), ...))(void *)’
+   18 | bool (*disjoin(bool (*fn)(void *), ...))(void *) {
+      |        ^~~~~~~
+/tmp/tmp8whqytnz.c: In function ‘disjoin’:
+/tmp/tmp8whqytnz.c:329:35: error: ‘arg’ undeclared (first use in this function)
+  329 |     return disjoin_lambda(fns, 2, arg);
+      |                                   ^~~
+/tmp/tmp8whqytnz.c:329:35: note: each undeclared identifier is reported only once for each function it appears in
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:332:6: error: conflicting types for ‘apply’; have ‘_Bool(_Bool (*)(void *), void *)’
+  332 | bool apply(predicate_fn fn, void *arg) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:44:6: note: previous definition of ‘apply’ with type ‘_Bool(_Bool (*)(void *), void *, __va_list_tag *)’
+   44 | bool apply(bool (*fn)(void *), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:336:6: error: conflicting types for ‘mapcar_predicate’; have ‘void(_Bool (*)(void *), const char **)’
+  336 | void mapcar_predicate(predicate_fn fn, const char *list[]) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:134:6: note: previous definition of ‘mapcar_predicate’ with type ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, size_t)’ {aka ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, long unsigned int)’}
+  134 | bool mapcar_predicate(predicate_fn fn, const char *list[], size_t length) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:344:5: error: redefinition of ‘main’
+  344 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:57:5: note: previous definition of ‘main’ with type ‘int()’
+   57 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c: In function ‘main’:
+/tmp/tmp8whqytnz.c:347:32: error: incompatible types when initializing type ‘predicate_fn’ using type ‘_Bool’
+  347 |     predicate_fn disjoint_fn = disjoin(integerp, symbolp);
+      |                                ^~~~~~~
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:354:1: error: unknown type name ‘The’
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      | ^~~
+/tmp/tmp8whqytnz.c:354:11: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘here’
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |           ^~~~
+/tmp/tmp8whqytnz.c:354:11: error: unknown type name ‘here’
+/tmp/tmp8whqytnz.c:354:35: error: stray ‘`’ in program
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |                                   ^
+/tmp/tmp8whqytnz.c:354:39: error: stray ‘`’ in program
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |                                       ^
+/tmp/tmp8whqytnz.c:354:50: error: stray ‘`’ in program
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |                                                  ^
+/tmp/tmp8whqytnz.c:354:58: error: stray ‘`’ in program
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |                                                          ^
+/tmp/tmp8whqytnz.c:354:118: warning: missing terminating ' character
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |                                                                                                                      ^
+/tmp/tmp8whqytnz.c:354:118: error: missing terminating ' character
+  354 | The issue here is that the static `fns` array in `disjoin` will only store one set of predicates at a time, which won't work if `disjoin` is called recursively. To fully resolve this, we would need to store the predicates in dynamically allocated memory, which is more complex. Here is an expanded version that handles nesting more accurately:
+      |                                                                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/tmp8whqytnz.c:360:
+/usr/include/stdlib.h:933:20: error: unknown type name ‘wchar_t’
+  933 | extern int mbtowc (wchar_t *__restrict __pwc,
+      |                    ^~~~~~~
+/usr/include/stdlib.h:575:1: note: ‘wchar_t’ is defined in header ‘<stddef.h>’; did you forget to ‘#include <stddef.h>’?
+  574 | # include <alloca.h>
+  +++ |+#include <stddef.h>
+  575 | #endif /* Use misc.  */
+/usr/include/stdlib.h:937:31: error: unknown type name ‘wchar_t’
+  937 | extern int wctomb (char *__s, wchar_t __wchar) __THROW;
+      |                               ^~~~~~~
+/usr/include/stdlib.h:937:31: note: ‘wchar_t’ is defined in header ‘<stddef.h>’; did you forget to ‘#include <stddef.h>’?
+/usr/include/stdlib.h:941:25: error: unknown type name ‘wchar_t’
+  941 | extern size_t mbstowcs (wchar_t *__restrict  __pwcs,
+      |                         ^~~~~~~
+/usr/include/stdlib.h:941:25: note: ‘wchar_t’ is defined in header ‘<stddef.h>’; did you forget to ‘#include <stddef.h>’?
+/usr/include/stdlib.h:946:31: error: unknown type name ‘wchar_t’
+  946 |                         const wchar_t *__restrict __pwcs, size_t __n)
+      |                               ^~~~~~~
+/tmp/tmp8whqytnz.c:362:6: error: redefinition of ‘integerp’
+  362 | bool integerp(void *arg) {
+      |      ^~~~~~~~
+/tmp/tmp8whqytnz.c:7:6: note: previous definition of ‘integerp’ with type ‘_Bool(void *)’
+    7 | bool integerp(void *arg) {
+      |      ^~~~~~~~
+/tmp/tmp8whqytnz.c:373:6: error: redefinition of ‘symbolp’
+  373 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:12:6: note: previous definition of ‘symbolp’ with type ‘_Bool(void *)’
+   12 | bool symbolp(void *arg) {
+      |      ^~~~~~~
+/tmp/tmp8whqytnz.c:393:6: error: conflicting types for ‘disjoin_apply’; have ‘_Bool(predicate_chain *, void *)’
+  393 | bool disjoin_apply(predicate_chain* chain, void *arg) {
+      |      ^~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:181:6: note: previous definition of ‘disjoin_apply’ with type ‘_Bool(_Bool (**)(void *), int,  void *)’
+  181 | bool disjoin_apply(bool (*fns[])(void *), int fn_count, void *arg) {
+      |      ^~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:399:6: error: conflicting types for ‘disjoin_lambda’; have ‘_Bool(void *, void *)’
+  399 | bool disjoin_lambda(void *chain_ptr, void *arg) {
+      |      ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:105:6: note: previous definition of ‘disjoin_lambda’ with type ‘_Bool(void *, __va_list_tag *)’
+  105 | bool disjoin_lambda(void *arg, va_list args) {
+      |      ^~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:404:18: error: conflicting types for ‘disjoin’; have ‘predicate_chain *(predicate_chain *, _Bool (*)(void *))’
+  404 | predicate_chain* disjoin(predicate_chain* current_chain, predicate_fn fn) {
+      |                  ^~~~~~~
+/tmp/tmp8whqytnz.c:18:8: note: previous definition of ‘disjoin’ with type ‘_Bool (*(_Bool (*)(void *), ...))(void *)’
+   18 | bool (*disjoin(bool (*fn)(void *), ...))(void *) {
+      |        ^~~~~~~
+/tmp/tmp8whqytnz.c:408:6: error: conflicting types for ‘apply’; have ‘_Bool(predicate_chain * (*)(predicate_chain *, _Bool (*)(void *)), predicate_chain *, _Bool (*)(void *), void *)’
+  408 | bool apply(predicate_chain *(*disjoin_fn)(predicate_chain*, predicate_fn), predicate_chain* chain, predicate_fn fn, void *arg) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c:44:6: note: previous definition of ‘apply’ with type ‘_Bool(_Bool (*)(void *), void *, __va_list_tag *)’
+   44 | bool apply(bool (*fn)(void *), void *arg, va_list args) {
+      |      ^~~~~
+/tmp/tmp8whqytnz.c: In function ‘apply’:
+/tmp/tmp8whqytnz.c:409:12: error: called object is not a function or function pointer
+  409 |     return disjoin_fn(chain, fn)(arg);
+      |            ^~~~~~~~~~
+/tmp/tmp8whqytnz.c: At top level:
+/tmp/tmp8whqytnz.c:412:6: error: conflicting types for ‘mapcar_predicate’; have ‘void(predicate_chain * (*)(predicate_chain *, _Bool (*)(void *)), predicate_chain *, _Bool (*)(void *), const char **)’
+  412 | void mapcar_predicate(predicate_chain *(*disjoin_fn)(predicate_chain*, predicate_fn), predicate_chain* chain, predicate_fn fn, const char *list[]) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:134:6: note: previous definition of ‘mapcar_predicate’ with type ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, size_t)’ {aka ‘_Bool(_Bool (*)(void *, __va_list_tag *), const char **, long unsigned int)’}
+  134 | bool mapcar_predicate(predicate_fn fn, const char *list[], size_t length) {
+      |      ^~~~~~~~~~~~~~~~
+/tmp/tmp8whqytnz.c:420:5: error: redefinition of ‘main’
+  420 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:57:5: note: previous definition of ‘main’ with type ‘int()’
+   57 | int main() {
+      |     ^~~~
+/tmp/tmp8whqytnz.c:439:1: error: unknown type name ‘This’
+  439 | This version dynamically allocates memory for each link in the predicate chain, ensuring that nested disjoins will work correctly and resources are properly freed.
+      | ^~~~
+/tmp/tmp8whqytnz.c:439:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘dynamically’
+  439 | This version dynamically allocates memory for each link in the predicate chain, ensuring that nested disjoins will work correctly and resources are properly freed.
+      |              ^~~~~~~~~~~
+/tmp/tmp8whqytnz.c:439:14: error: unknown type name ‘dynamically’
+In file included from /tmp/tmp8whqytnz.c:2:
+/tmp/tmp8whqytnz.c: In function ‘disjoin_helper’:
+/tmp/tmp8whqytnz.c:115:5: error: ‘va_start’ used in function with fixed arguments
+  115 |     va_start(args, arg);
+      |     ^~~~~~~~
+
+----------------------------------------
+Program 20 output: Semantic Error
+Compilation Error:
+/tmp/tmpmc0bqptx.c: In function ‘mapcar’:
+/tmp/tmpmc0bqptx.c:25:27: warning: passing argument 1 of ‘func’ makes integer from pointer without a cast [-Wint-conversion]
+   25 |         results[i] = func(fn, conj, (int)strtol(str_args[i], NULL, 10));
+      |                           ^~
+      |                           |
+      |                           int (*)(int)
+/tmp/tmpmc0bqptx.c:25:27: note: expected ‘int’ but argument is of type ‘int (*)(int)’
+/tmp/tmpmc0bqptx.c:25:31: warning: passing argument 2 of ‘func’ makes integer from pointer without a cast [-Wint-conversion]
+   25 |         results[i] = func(fn, conj, (int)strtol(str_args[i], NULL, 10));
+      |                               ^~~~
+      |                               |
+      |                               int (*)(int)
+/tmp/tmpmc0bqptx.c:25:31: note: expected ‘int’ but argument is of type ‘int (*)(int)’
+/tmp/tmpmc0bqptx.c: In function ‘main’:
+/tmp/tmpmc0bqptx.c:33:27: warning: passing argument 1 of ‘mapcar’ from incompatible pointer type [-Wincompatible-pointer-types]
+   33 |     int* results = mapcar(conjoin, integerp, symbolp, args, size);
+      |                           ^~~~~~~
+      |                           |
+      |                           int (*)(int (*)(int), int (*)(int), int)
+/tmp/tmpmc0bqptx.c:22:19: note: expected ‘int (*)(int,  int,  int)’ but argument is of type ‘int (*)(int (*)(int), int (*)(int), int)’
+   22 | int* mapcar(int (*func)(int, int, int), int (*fn)(int), int (*conj)(int), char* str_args[], int size) {
+      |             ~~~~~~^~~~~~~~~~~~~~~~~~~~
+/tmp/tmpmc0bqptx.c:33:46: warning: passing argument 3 of ‘mapcar’ from incompatible pointer type [-Wincompatible-pointer-types]
+   33 |     int* results = mapcar(conjoin, integerp, symbolp, args, size);
+      |                                              ^~~~~~~
+      |                                              |
+      |                                              int (*)(char *)
+/tmp/tmpmc0bqptx.c:22:63: note: expected ‘int (*)(int)’ but argument is of type ‘int (*)(char *)’
+   22 | int* mapcar(int (*func)(int, int, int), int (*fn)(int), int (*conj)(int), char* str_args[], int size) {
+      |                                                         ~~~~~~^~~~~~~~~~
+/tmp/tmpmc0bqptx.c: At top level:
+/tmp/tmpmc0bqptx.c:44:5: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘:’ token
+   44 | Note: The above C code is an attempt to translate the given Lisp code, but it has limitations due to C's type system and lack of direct support for variadic arguments and higher-order functions like in Lisp. The `conjoin` function in C assumes that the arguments are integers for demonstration purposes, which is not directly equivalent to the Lisp version. Additionally, the `mapcar` function here is simplified and does not fully capture the dynamic nature of the Lisp version, especially with handling different types (`int`, `char*`) in a single array. This translation is an approximation and may require additional context or adjustments based on specific requirements.
+      |     ^
+/tmp/tmpmc0bqptx.c:44:103: warning: missing terminating ' character
+   44 | Note: The above C code is an attempt to translate the given Lisp code, but it has limitations due to C's type system and lack of direct support for variadic arguments and higher-order functions like in Lisp. The `conjoin` function in C assumes that the arguments are integers for demonstration purposes, which is not directly equivalent to the Lisp version. Additionally, the `mapcar` function here is simplified and does not fully capture the dynamic nature of the Lisp version, especially with handling different types (`int`, `char*`) in a single array. This translation is an approximation and may require additional context or adjustments based on specific requirements.
+      |                                                                                                       ^
+/tmp/tmpmc0bqptx.c:44:103: error: missing terminating ' character
+   44 | Note: The above C code is an attempt to translate the given Lisp code, but it has limitations due to C's type system and lack of direct support for variadic arguments and higher-order functions like in Lisp. The `conjoin` function in C assumes that the arguments are integers for demonstration purposes, which is not directly equivalent to the Lisp version. Additionally, the `mapcar` function here is simplified and does not fully capture the dynamic nature of the Lisp version, especially with handling different types (`int`, `char*`) in a single array. This translation is an approximation and may require additional context or adjustments based on specific requirements.
+      |                                                                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----------------------------------------
+Program 21 output: Correct
+Compilation Error:
+/tmp/tmppjzi3yl4.c: In function ‘curry’:
+/tmp/tmppjzi3yl4.c:15:12: error: expected expression before ‘^’ token
+   15 |     return ^(int argc2, int argv2[]) {
+      |            ^
+/tmp/tmppjzi3yl4.c: At top level:
+/tmp/tmppjzi3yl4.c:39:1: error: unknown type name ‘Please’
+   39 | Please note that the above C code uses_blocks, which is a non-standard extension available in Clang for Objective-C. If you need standard C code, we will require a different approach, such as using function pointers and structures to hold arguments. Here is a version that adheres to standard C:
+      | ^~~~~~
+/tmp/tmppjzi3yl4.c:39:13: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘that’
+   39 | Please note that the above C code uses_blocks, which is a non-standard extension available in Clang for Objective-C. If you need standard C code, we will require a different approach, such as using function pointers and structures to hold arguments. Here is a version that adheres to standard C:
+      |             ^~~~
+/tmp/tmppjzi3yl4.c:39:13: error: unknown type name ‘that’
+In file included from /tmp/tmppjzi3yl4.c:42:
+/usr/include/stdlib.h:933:20: error: unknown type name ‘wchar_t’
+  933 | extern int mbtowc (wchar_t *__restrict __pwc,
+      |                    ^~~~~~~
+/usr/include/stdlib.h:575:1: note: ‘wchar_t’ is defined in header ‘<stddef.h>’; did you forget to ‘#include <stddef.h>’?
+  574 | # include <alloca.h>
+  +++ |+#include <stddef.h>
+  575 | #endif /* Use misc.  */
+/usr/include/stdlib.h:937:31: error: unknown type name ‘wchar_t’
+  937 | extern int wctomb (char *__s, wchar_t __wchar) __THROW;
+      |                               ^~~~~~~
+/usr/include/stdlib.h:937:31: note: ‘wchar_t’ is defined in header ‘<stddef.h>’; did you forget to ‘#include <stddef.h>’?
+/usr/include/stdlib.h:941:25: error: unknown type name ‘wchar_t’
+  941 | extern size_t mbstowcs (wchar_t *__restrict  __pwcs,
+      |                         ^~~~~~~
+/usr/include/stdlib.h:941:25: note: ‘wchar_t’ is defined in header ‘<stddef.h>’; did you forget to ‘#include <stddef.h>’?
+/usr/include/stdlib.h:946:31: error: unknown type name ‘wchar_t’
+  946 |                         const wchar_t *__restrict __pwcs, size_t __n)
+      |                               ^~~~~~~
+/tmp/tmppjzi3yl4.c:49:5: error: conflicting types for ‘subtract’; have ‘int(CurriedArgs *)’
+   49 | int subtract(CurriedArgs *args) {
+      |     ^~~~~~~~
+/tmp/tmppjzi3yl4.c:3:5: note: previous definition of ‘subtract’ with type ‘int(int,  int *)’
+    3 | int subtract(int argc, int argv[]) {
+      |     ^~~~~~~~
+/tmp/tmppjzi3yl4.c:57:14: error: conflicting types for ‘curry’; have ‘CurriedArgs *(int (*)(CurriedArgs *), int,  int *)’
+   57 | CurriedArgs* curry(int (*fn)(CurriedArgs*), int argc, int *argv) {
+      |              ^~~~~
+/tmp/tmppjzi3yl4.c:14:13: note: previous definition of ‘curry’ with type ‘int (*(int (*)(int,  int *), int,  int *))(int,  int *)’
+   14 | FunctionPtr curry(FunctionPtr fn, int argc, int argv[]) {
+      |             ^~~~~
+/tmp/tmppjzi3yl4.c:83:5: error: redefinition of ‘main’
+   83 | int main() {
+      |     ^~~~
+/tmp/tmppjzi3yl4.c:28:5: note: previous definition of ‘main’ with type ‘int()’
+   28 | int main() {
+      |     ^~~~
+/tmp/tmppjzi3yl4.c:94:1: error: unknown type name ‘This’
+   94 | This version avoids the use of extensions and adheres to standard C by using dynamic memory allocation to store the arguments.
+      | ^~~~
+/tmp/tmppjzi3yl4.c:94:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘avoids’
+   94 | This version avoids the use of extensions and adheres to standard C by using dynamic memory allocation to store the arguments.
+      |              ^~~~~~
+/tmp/tmppjzi3yl4.c:94:14: error: unknown type name ‘avoids’; did you mean ‘void’?
+   94 | This version avoids the use of extensions and adheres to standard C by using dynamic memory allocation to store the arguments.
+      |              ^~~~~~
+      |              void
+
+----------------------------------------
+Program 22 output: Correct
+-1
+----------------------------------------
+Program 23 output: Correct
+44 98 99
+----------------------------------------
+Program 24 output: Correct
+(a b c d)
+----------------------------------------
+Program 25 output: Semantic Error
+Compilation Error:
+/tmp/tmpaqp07f2d.c: In function ‘match’:
+/tmp/tmpaqp07f2d.c:66:16: warning: implicit declaration of function ‘varp’ [-Wimplicit-function-declaration]
+   66 |     } else if (varp((const char *)x)) {
+      |                ^~~~
+/tmp/tmpaqp07f2d.c:72:56: warning: passing argument 1 of ‘match’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   72 |             PairList *result = match(((const char **)x)[0], ((const char **)y)[0], binds);
+      |                                      ~~~~~~~~~~~~~~~~~~^~~
+/tmp/tmpaqp07f2d.c:57:23: note: expected ‘void *’ but argument is of type ‘const char *’
+   57 | PairList* match(void *x, void *y, PairList *binds) {
+      |                 ~~~~~~^
+/tmp/tmpaqp07f2d.c:72:79: warning: passing argument 2 of ‘match’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   72 |             PairList *result = match(((const char **)x)[0], ((const char **)y)[0], binds);
+      |                                                             ~~~~~~~~~~~~~~~~~~^~~
+/tmp/tmpaqp07f2d.c:57:32: note: expected ‘void *’ but argument is of type ‘const char *’
+   57 | PairList* match(void *x, void *y, PairList *binds) {
+      |                          ~~~~~~^
+/tmp/tmpaqp07f2d.c: At top level:
+/tmp/tmpaqp07f2d.c:138:1: error: unknown type name ‘RULELIST’
+  138 | RULELIST **rules;
+      | ^~~~~~~~
+/tmp/tmpaqp07f2d.c:140:51: error: unknown type name ‘RULELIST’
+  140 | int push_rule(const char **con, const char **ant, RULELIST **rules_table) {
+      |                                                   ^~~~~~~~
+/tmp/tmpaqp07f2d.c: In function ‘prove_simple’:
+/tmp/tmpaqp07f2d.c:156:29: error: array subscript is not an integer
+  156 |     RuleList *result = rules[pred];
+      |                             ^
+/tmp/tmpaqp07f2d.c:171:43: warning: initialization of ‘PairList *’ from incompatible pointer type ‘RuleList *’ [-Wincompatible-pointer-types]
+  171 |                 PairList *inner_matches = prove_simple(pred, rule_value, final_binds);
+      |                                           ^~~~~~~~~~~~
+/tmp/tmpaqp07f2d.c:172:44: warning: passing argument 1 of ‘rule_list_append’ from incompatible pointer type [-Wincompatible-pointer-types]
+  172 |                 matches = rule_list_append(matches, inner_matches);
+      |                                            ^~~~~~~
+      |                                            |
+      |                                            PairList *
+/tmp/tmpaqp07f2d.c:122:38: note: expected ‘RuleList *’ but argument is of type ‘PairList *’
+  122 | RuleList* rule_list_append(RuleList *list, Rule *rule) {
+      |                            ~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c:172:53: warning: passing argument 2 of ‘rule_list_append’ from incompatible pointer type [-Wincompatible-pointer-types]
+  172 |                 matches = rule_list_append(matches, inner_matches);
+      |                                                     ^~~~~~~~~~~~~
+      |                                                     |
+      |                                                     PairList *
+/tmp/tmpaqp07f2d.c:122:50: note: expected ‘Rule *’ but argument is of type ‘PairList *’
+  122 | RuleList* rule_list_append(RuleList *list, Rule *rule) {
+      |                                            ~~~~~~^~~~
+/tmp/tmpaqp07f2d.c:172:25: warning: assignment to ‘PairList *’ from incompatible pointer type ‘RuleList *’ [-Wincompatible-pointer-types]
+  172 |                 matches = rule_list_append(matches, inner_matches);
+      |                         ^
+/tmp/tmpaqp07f2d.c:174:44: warning: passing argument 1 of ‘rule_list_append’ from incompatible pointer type [-Wincompatible-pointer-types]
+  174 |                 matches = rule_list_append(matches, final_binds);
+      |                                            ^~~~~~~
+      |                                            |
+      |                                            PairList *
+/tmp/tmpaqp07f2d.c:122:38: note: expected ‘RuleList *’ but argument is of type ‘PairList *’
+  122 | RuleList* rule_list_append(RuleList *list, Rule *rule) {
+      |                            ~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c:174:53: warning: passing argument 2 of ‘rule_list_append’ from incompatible pointer type [-Wincompatible-pointer-types]
+  174 |                 matches = rule_list_append(matches, final_binds);
+      |                                                     ^~~~~~~~~~~
+      |                                                     |
+      |                                                     PairList *
+/tmp/tmpaqp07f2d.c:122:50: note: expected ‘Rule *’ but argument is of type ‘PairList *’
+  122 | RuleList* rule_list_append(RuleList *list, Rule *rule) {
+      |                                            ~~~~~~^~~~
+/tmp/tmpaqp07f2d.c:174:25: warning: assignment to ‘PairList *’ from incompatible pointer type ‘RuleList *’ [-Wincompatible-pointer-types]
+  174 |                 matches = rule_list_append(matches, final_binds);
+      |                         ^
+/tmp/tmpaqp07f2d.c:181:12: warning: returning ‘PairList *’ from a function with incompatible return type ‘RuleList *’ [-Wincompatible-pointer-types]
+  181 |     return matches;
+      |            ^~~~~~~
+/tmp/tmpaqp07f2d.c: In function ‘expr_create’:
+/tmp/tmpaqp07f2d.c:194:5: warning: implicit declaration of function ‘va_start’ [-Wimplicit-function-declaration]
+  194 |     va_start(args, type);
+      |     ^~~~~~~~
+/tmp/tmpaqp07f2d.c:197:33: warning: implicit declaration of function ‘va_arg’ [-Wimplicit-function-declaration]
+  197 |         const char *predicate = va_arg(args, const char *);
+      |                                 ^~~~~~
+/tmp/tmpaqp07f2d.c:197:46: error: expected expression before ‘const’
+  197 |         const char *predicate = va_arg(args, const char *);
+      |                                              ^~~~~
+/tmp/tmpaqp07f2d.c:203:5: warning: implicit declaration of function ‘va_end’ [-Wimplicit-function-declaration]
+  203 |     va_end(args);
+      |     ^~~~~~
+/tmp/tmpaqp07f2d.c: In function ‘expr_free’:
+/tmp/tmpaqp07f2d.c:209:14: warning: passing argument 1 of ‘free’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  209 |     free(expr->type);
+      |          ~~~~^~~~~~
+In file included from /tmp/tmpaqp07f2d.c:2:
+/usr/include/stdlib.h:555:25: note: expected ‘void *’ but argument is of type ‘const char *’
+  555 | extern void free (void *__ptr) __THROW;
+      |                   ~~~~~~^~~~~
+/tmp/tmpaqp07f2d.c: In function ‘prove_and’:
+/tmp/tmpaqp07f2d.c:216:16: warning: returning ‘PairList *’ from a function with incompatible return type ‘RuleList *’ [-Wincompatible-pointer-types]
+  216 |         return list_prepend(binds, pair_create("result", (void *)"t"));
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tmpaqp07f2d.c:218:29: warning: implicit declaration of function ‘prove’ [-Wimplicit-function-declaration]
+  218 |         RuleList *matches = prove(expr_create(type), binds);
+      |                             ^~~~~
+/tmp/tmpaqp07f2d.c:218:29: warning: initialization of ‘RuleList *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+/tmp/tmpaqp07f2d.c:220:46: error: ‘RuleList’ has no member named ‘pair’
+  220 |             PairList *current_binds = matches->pair;
+      |                                              ^~
+/tmp/tmpaqp07f2d.c:222:103: warning: passing argument 2 of ‘rule_list_append’ from incompatible pointer type [-Wincompatible-pointer-types]
+  222 |                 matches = rule_list_append(prove_and(type + 1, assoc("result", current_binds)->next), matches);
+      |                                                                                                       ^~~~~~~
+      |                                                                                                       |
+      |                                                                                                       RuleList *
+/tmp/tmpaqp07f2d.c:122:50: note: expected ‘Rule *’ but argument is of type ‘RuleList *’
+  122 | RuleList* rule_list_append(RuleList *list, Rule *rule) {
+      |                                            ~~~~~~^~~~
+/tmp/tmpaqp07f2d.c: In function ‘prove_or’:
+/tmp/tmpaqp07f2d.c:233:28: warning: initialization of ‘RuleList *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  233 |         RuleList *result = prove(expr_create(*clauses), binds);
+      |                            ^~~~~
+/tmp/tmpaqp07f2d.c:234:54: warning: passing argument 2 of ‘assoc’ from incompatible pointer type [-Wincompatible-pointer-types]
+  234 |         if (result != NULL && strcmp(assoc("result", result)->pair->value, "t") == 0) {
+      |                                                      ^~~~~~
+      |                                                      |
+      |                                                      RuleList *
+/tmp/tmpaqp07f2d.c:47:44: note: expected ‘PairList *’ but argument is of type ‘RuleList *’
+   47 | PairList* assoc(const char *key, PairList *list) {
+      |                                  ~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c:235:49: warning: passing argument 2 of ‘rule_list_append’ from incompatible pointer type [-Wincompatible-pointer-types]
+  235 |             matches = rule_list_append(matches, result);
+      |                                                 ^~~~~~
+      |                                                 |
+      |                                                 RuleList *
+/tmp/tmpaqp07f2d.c:122:50: note: expected ‘Rule *’ but argument is of type ‘RuleList *’
+  122 | RuleList* rule_list_append(RuleList *list, Rule *rule) {
+      |                                            ~~~~~~^~~~
+/tmp/tmpaqp07f2d.c: In function ‘prove_not’:
+/tmp/tmpaqp07f2d.c:243:24: warning: initialization of ‘RuleList *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  243 |     RuleList *result = prove(expr_create(clause), binds);
+      |                        ^~~~~
+/tmp/tmpaqp07f2d.c:244:50: warning: passing argument 2 of ‘assoc’ from incompatible pointer type [-Wincompatible-pointer-types]
+  244 |     if (result == NULL || strcmp(assoc("result", result)->pair->value, "t") != 0) {
+      |                                                  ^~~~~~
+      |                                                  |
+      |                                                  RuleList *
+/tmp/tmpaqp07f2d.c:47:44: note: expected ‘PairList *’ but argument is of type ‘RuleList *’
+   47 | PairList* assoc(const char *key, PairList *list) {
+      |                                  ~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c:245:16: warning: returning ‘PairList *’ from a function with incompatible return type ‘RuleList *’ [-Wincompatible-pointer-types]
+  245 |         return list_prepend(binds, pair_create("result", (void *)"t"));
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/tmpaqp07f2d.c: At top level:
+/tmp/tmpaqp07f2d.c:250:11: error: conflicting types for ‘prove’; have ‘RuleList *(Expr *, PairList *)’
+  250 | RuleList* prove(Expr *expr, PairList *binds) {
+      |           ^~~~~
+/tmp/tmpaqp07f2d.c:218:29: note: previous implicit declaration of ‘prove’ with type ‘int()’
+  218 |         RuleList *matches = prove(expr_create(type), binds);
+      |                             ^~~~~
+/tmp/tmpaqp07f2d.c: In function ‘prove’:
+/tmp/tmpaqp07f2d.c:255:26: warning: passing argument 1 of ‘prove_and’ from incompatible pointer type [-Wincompatible-pointer-types]
+  255 |         return prove_and(predicates, binds);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          const char **
+/tmp/tmpaqp07f2d.c:214:33: note: expected ‘const char *’ but argument is of type ‘const char **’
+  214 | RuleList* prove_and(const char *type, PairList *binds) {
+      |                     ~~~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c: In function ‘with_answer’:
+/tmp/tmpaqp07f2d.c:266:26: warning: initialization of ‘PairList *’ from incompatible pointer type ‘RuleList *’ [-Wincompatible-pointer-types]
+  266 |     PairList *bindings = prove(expr_create(query), NULL);
+      |                          ^~~~~
+/tmp/tmpaqp07f2d.c:268:25: warning: implicit declaration of function ‘vars_in’ [-Wimplicit-function-declaration]
+  268 |     const char **vars = vars_in(query);
+      |                         ^~~~~~~
+/tmp/tmpaqp07f2d.c:268:25: warning: initialization of ‘const char **’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+/tmp/tmpaqp07f2d.c:276:27: warning: assignment to ‘Pair *’ from incompatible pointer type ‘PairList *’ [-Wincompatible-pointer-types]
+  276 |             bound_vars[i] = assoc(vars[i], current_binding);
+      |                           ^
+/tmp/tmpaqp07f2d.c: At top level:
+/tmp/tmpaqp07f2d.c:304:14: error: conflicting types for ‘vars_in’; have ‘const char **(const char **)’
+  304 | const char **vars_in(const char **expr) {
+      |              ^~~~~~~
+/tmp/tmpaqp07f2d.c:268:25: note: previous implicit declaration of ‘vars_in’ with type ‘int()’
+  268 |     const char **vars = vars_in(query);
+      |                         ^~~~~~~
+/tmp/tmpaqp07f2d.c: In function ‘process_bindings’:
+/tmp/tmpaqp07f2d.c:317:33: warning: passing argument 1 of ‘vars_in’ from incompatible pointer type [-Wincompatible-pointer-types]
+  317 |     const char **vars = vars_in(bindings);
+      |                                 ^~~~~~~~
+      |                                 |
+      |                                 PairList *
+/tmp/tmpaqp07f2d.c:304:35: note: expected ‘const char **’ but argument is of type ‘PairList *’
+  304 | const char **vars_in(const char **expr) {
+      |                      ~~~~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c: In function ‘main’:
+/tmp/tmpaqp07f2d.c:349:5: warning: implicit declaration of function ‘push_rule’ [-Wimplicit-function-declaration]
+  349 |     push_rule(p1, p1 + 2, rules);
+      |     ^~~~~~~~~
+/tmp/tmpaqp07f2d.c:354:12: warning: assignment to ‘PairList *’ from incompatible pointer type ‘RuleList *’ [-Wincompatible-pointer-types]
+  354 |     result = prove_simple(pred, args, NULL);
+      |            ^
+/tmp/tmpaqp07f2d.c:358:20: warning: passing argument 1 of ‘rule_list_free’ from incompatible pointer type [-Wincompatible-pointer-types]
+  358 |     rule_list_free(result);
+      |                    ^~~~~~
+      |                    |
+      |                    PairList *
+/tmp/tmpaqp07f2d.c:129:31: note: expected ‘RuleList *’ but argument is of type ‘PairList *’
+  129 | void rule_list_free(RuleList *list) {
+      |                     ~~~~~~~~~~^~~~
+/tmp/tmpaqp07f2d.c: At top level:
+/tmp/tmpaqp07f2d.c:366:5: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘:’ token
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |     ^
+/tmp/tmpaqp07f2d.c:366:230: error: stray ‘`’ in program
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |                                                                                                                                                                                                                                      ^
+/tmp/tmpaqp07f2d.c:366:238: error: stray ‘`’ in program
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |                                                                                                                                                                                                                                              ^
+/tmp/tmpaqp07f2d.c:366:285: error: stray ‘`’ in program
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |                                                                                                                                                                                                                                                                                             ^
+/tmp/tmpaqp07f2d.c:366:294: error: stray ‘`’ in program
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |                                                                                                                                                                                                                                                                                                      ^
+/tmp/tmpaqp07f2d.c:366:328: error: stray ‘`’ in program
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |                                                                                                                                                                                                                                                                                                                                        ^
+/tmp/tmpaqp07f2d.c:366:335: error: stray ‘`’ in program
+  366 | Note: The provided C code includes manual memory management and assumes the existence of several helper functions to manage strings and lists. The code should be compiled with a C89 or later compatible compiler due to the use of `va_list` and its associated macros. Additionally, the `format t` part from Lisp is translated to `printf` in C, which outputs a string in a formatted manner. The structure of the Lisp code has been converted to C structures while keeping the logic intact. However, direct execution may require additional setup and handling for certain functionalities like variable generation and hash table manipulation.
+      |                                                                                                                                                                                                                                                                                                                                               ^
+
+----------------------------------------

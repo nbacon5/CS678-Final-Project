@@ -1,0 +1,290 @@
+Program 1 output:
+[1]> 
+COMPRESS
+[2]> 
+COMPR
+[3]> 
+N-ELTS
+[4]> 
+((3 1) 0 1 (4 0) 1) 
+((3 1) 0 1 (4 0) 1)
+----------------------------------------
+Program 2 output:
+[1]> 
+UNCOMPRESS
+[2]> 
+LIST-OF
+[3]> 
+(1 1 1 0 1 0 0 0 0 1) 
+(1 1 1 0 1 0 0 0 0 1)
+----------------------------------------
+Program 3 output:
+[1]> 
+MIRROR?
+[2]> 
+T 
+T
+----------------------------------------
+Program 4 output:
+[1]> 
+SHORTEST-PATH
+[2]> 
+BFS
+[3]> 
+NEW-PATHS
+[4]> 
+(A C D) 
+(A C D)
+----------------------------------------
+Program 5 output:
+[1]> 
+BIN-SEARCH
+[2]> 
+FINDER
+[3]> 
+3 
+3
+----------------------------------------
+Program 6 output:
+[1]> 
+SECOND-WORD
+[2]> 
+"follows" 
+"follows"
+----------------------------------------
+Program 7 output:
+[1]> 
+TOKENS
+[2]> 
+CONSTITUENT
+[3]> 
+PARSE-DATE
+[4]> 
+MONTH-NAMES
+[5]> 
+PARSE-MONTH
+[6]> 
+("ab" "cde" "f") 
+("ab" "cde" "f")
+[7]> 
+("ab12" "3cde.f" "gh") 
+("ab12" "3cde.f" "gh")
+[8]> 
+(16 8 1980) 
+(16 8 1980)
+----------------------------------------
+Program 8 output:
+[1]> 
+MY-READ-INTEGER
+[2]> 
+578 
+578
+----------------------------------------
+Program 9 output:
+[1]> 
+NODE
+[2]> 
+BST-INSERT
+[3]> 
+BST-FIND
+[4]> 
+BST-MIN
+[5]> 
+BST-MAX
+[6]> 
+BST-TRAVERSE
+[7]> 
+BST-REMOVE
+[8]> 
+PERCOLATE
+[9]> 
+BST-REMOVE-MIN
+[10]> 
+BST-REMOVE-MAX
+[11]> 
+NIL
+[12]> 
+NIL
+[13]> 
+NIL 
+NIL
+[14]> 
+#<4> 
+#<4>
+[15]> 
+#<1> 
+#<1>
+[16]> 
+#<9> 
+#<9>
+[17]> 
+#<5>
+[18]> 
+NIL 
+NIL
+[19]> 13456789
+NIL 
+NIL
+----------------------------------------
+Program 10 output:
+[1]> 
+FACTORIAL
+[2]> 
+3628800 
+3628800
+----------------------------------------
+Program 11 output:
+[1]> 
+SINGLE?
+[2]> 
+T 
+T
+----------------------------------------
+Program 12 output:
+[1]> 
+APPEND1
+[2]> 
+(A B C D) 
+(A B C D)
+----------------------------------------
+Program 13 output:
+[1]> 
+MAP-INT
+[2]> 
+(0 1 2 3 4 5 6 7 8 9) 
+(0 1 2 3 4 5 6 7 8 9)
+----------------------------------------
+Program 14 output:
+[1]> 
+FILTER
+[2]> 
+(12 14 16) 
+(12 14 16)
+----------------------------------------
+Program 15 output:
+[1]> 
+MOST
+[2]> 
+(A B C) 
+(A B C)
+----------------------------------------
+Program 16 output:
+[1]> 
+MAKE-ADDER
+[2]> 
+#<FUNCTION :LAMBDA (X) (+ X N)>
+[3]> 
+5 
+5
+[4]> 
+#<FUNCTION :LAMBDA (X) (+ X N)>
+[5]> 
+29 
+29
+----------------------------------------
+Program 17 output:
+[1]> 
+STAMP
+[2]> 
+(1 2 0 1) 
+(1 2 0 1)
+----------------------------------------
+Program 18 output:
+[1]> 
+COMPOSE
+[2]> 
+((2) (3) (4) (5)) 
+((2) (3) (4) (5))
+----------------------------------------
+Program 19 output:
+[1]> 
+DISJOIN
+[2]> 
+(T NIL T T) 
+(T NIL T T)
+----------------------------------------
+Program 20 output:
+[1]> 
+CONJOIN
+[2]> 
+(NIL NIL NIL NIL) 
+(NIL NIL NIL NIL)
+----------------------------------------
+Program 21 output:
+[1]> 
+CURRY
+[2]> 
+1 
+1
+----------------------------------------
+Program 22 output:
+[1]> 
+RCURRY
+[2]> 
+-1 
+-1
+----------------------------------------
+Program 23 output:
+[1]> 
+CAH
+[2]> 
+(44 B C)
+----------------------------------------
+Program 24 output:
+[1]> 
+APPEND1F
+[2]> 
+(A B C D) 
+(A B C D)
+----------------------------------------
+Program 25 output:
+[1]> 
+MATCH
+[2]> 
+VAR?
+[3]> 
+BINDING
+[4]> 
+*RULES*
+[5]> 
+<-
+[6]> 
+PROVE
+[7]> 
+PROVE-SIMPLE
+[8]> 
+CHANGE-VARS
+[9]> 
+VARS-IN
+[10]> 
+PROVE-AND
+[11]> 
+PROVE-OR
+[12]> 
+PROVE-NOT
+[13]> 
+WITH-ANSWER
+[14]> 
+((?Y . B) (?X . A)) 
+((?Y . B) (?X . A))
+[15]> 
+((?Y . C) (?X . ?Y)) 
+((?Y . C) (?X . ?Y))
+[16]> 
+NIL 
+NIL
+[17]> 
+NIL 
+NIL
+[18]> 
+1
+[19]> 
+1
+[20]> 
+(((#:?2960 . NANCY) (#:?2959 . DONALD) (?Y . #:?2959) (?X . #:?2960))) 
+(((#:?2960 . NANCY) (#:?2959 . DONALD) (?Y . #:?2959) (?X . #:?2960)))
+[21]> DONALD is the parent of NANCY. 
+
+NIL 
+NIL
+----------------------------------------
