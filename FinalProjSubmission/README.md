@@ -15,8 +15,6 @@ Finally, the manual correctness evaluation can be done as follows:
 
 # Humanness:
 
-Like before, set your API keys.
-
 For Haskell test cases: add your code **in a separate file** in the HS_Dataset folder.
 
 Use `humanness.ipynb` to perform the translation. Your result will be in the `HS_Output` folder.
